@@ -1,0 +1,96 @@
+<html>
+  <head>
+     <title>Quiz Program</title>
+     <script>
+      var score = 0;
+      var questionCount = 0;
+      function gradeQuiz()
+      {
+        if(questionCount == 0)
+        {
+           //check if the user anwer is equal to something
+          var ans = document.getElementById('answer').value;
+           //add one to score if it is correct
+           if(ans == 365)
+           {
+           score = score + 1;
+             alert(score);
+         }
+          //add one questionCount to advance to the next question
+
+          document.getElementById("question").innerHTML = "How many minutes are in an hour?";
+        }
+
+
+        if(questionCount == 1)
+        {
+
+          var ans = document.getElementById('answer').value;
+          if(ans == 60)
+          {
+          score = score + 1
+            alert(score);
+          }
+
+          document.getElementById("question").innerHTML = "What is 2 + 2 ?";
+        }
+
+        if(questionCount == 2)
+        {
+          var ans = document.getElementById('answer').value;
+          if(ans == 4)
+          {
+            score = score + 1
+            alert(score);
+          }
+          end();
+        }
+
+        questionCount = questionCount + 1;
+        }
+
+
+       function end()
+       {
+
+              document.getElementById('button').style.visibility = "hidden";
+              document.getElementById('answer').style.visibility = "hidden";
+              document.getElementById('question').style.visibility = "hidden";
+
+               //Hide And Reveal Some Stuff
+              document.getElementById('score').innerHTML = "Your score = " + score;
+              document.getElementById('explain').innerHTML = "Answers: <br> #1 = 365,<br> #2 = 60, <br> #3 = 4.  <br>HAVE A GOOD DAY!"
+
+       }
+
+     </script>
+
+     <style>
+     body {
+       background-color: darkorange;
+     }
+     h2{
+       font-family: cursive;
+       color: teal;
+     }
+     #button {
+       color: lightseagreen;
+     }
+
+     p{
+       font-family: monospace;
+     }
+     </style>
+  </head>
+
+  <body>
+    <h2>The Randominator Quiz!</h2>
+      <p>Test Your General Knowledge!</p>
+    <span id = "question">How many days are in a year?</span>
+    <input type = "text" id = "answer">
+    <input type = "button" value = "Submit Answer" onclick = "gradeQuiz()" id = "button">
+     <!--Hide or Reveal Stuff???-->
+     <span id = "score"></span><!--hidden at beginning maybe??-->
+     <span id = "explain"></span>
+  </body>
+</html>
